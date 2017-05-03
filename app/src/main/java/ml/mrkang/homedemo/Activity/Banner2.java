@@ -10,6 +10,6 @@ public class Banner2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_banner2);
+//        setContentView(R.layout.activity_banner2);
     }
 }
