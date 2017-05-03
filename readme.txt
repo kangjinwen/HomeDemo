@@ -1,1 +1,1 @@
-homeÊ×Ò³µÄ²âÊÔÃæ°å
+HomeTestActivity
