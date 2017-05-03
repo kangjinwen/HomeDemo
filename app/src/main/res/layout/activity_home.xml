@@ -4,8 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ml.mrkang.homedemo.HomeActivity">
-
+    tools:context="ml.mrkang.homedemo.Activity.HomeActivity">
+    <com.youth.banner.Banner
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/banner"
+        android:layout_width="368dp"
+        android:layout_height="200dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

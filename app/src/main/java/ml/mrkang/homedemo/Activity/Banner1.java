@@ -1,13 +1,15 @@
-package ml.mrkang.homedemo;
+package ml.mrkang.homedemo.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class HomeActivity extends AppCompatActivity {
+import ml.mrkang.homedemo.R;
+
+public class Banner1 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_banner1);
     }
 }
