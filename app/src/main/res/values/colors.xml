@@ -3,4 +3,23 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="gray">#999</color>
+    <color name="gray_black">#666666</color>
+    <color name="btn_thin_blue">#457ffd</color>
+    <color name="btn_dark_blue">#FF454EFD</color>
+    <color name="thin_black">#333</color>
+    <color name="thin_black_gray">#b4b8bc</color>
+    <color name="thin_black_small_gray">#9ea4a9</color>
+    <color name="big_title">#4680fe</color>
+    <color name="tab_text">#457ffd</color>
+    <color name="light_sms_btn_color">#45defd</color>
+    <color name="hint_text_color">#d0d5d7</color>
+    <color name="homeBottomNavigationBg">#FBFBFB</color>
+    <color name="home_sort_text">#9ea4a9</color>
+    <color name="home_icon_text">#040f24</color>
+    <color name="qq_wechat_text">#9ea49a</color>
+    <color name="txt_color_gray">#888</color>
+    <color name="bg">#f0f0f0</color>
+    <color name="home_rv_bg">#e1e2e4</color>
+    <color name="contact_admin_text">#9ea4a9</color>
 </resources>
