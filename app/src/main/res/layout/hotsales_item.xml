@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+
+    android:layout_height="50dp"
+    android:paddingBottom="1dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <ImageView
+            android:id="@+id/hotsales_img1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/spot"/>
+        <TextView
+            android:id="@+id/hotsales_dec1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="2dp"
+            android:layout_gravity="center_horizontal"
+            android:text="布沃山秋名山赤霞珠"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/bg">
+    </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:orientation="vertical">
+    <ImageView
+        android:id="@+id/hotsales_img2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/container"
+        android:layout_weight="1"
+        />
+    <TextView
+        android:id="@+id/hotsales_dec2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="夏威夷产解百纳"/>
+</LinearLayout>
+
+</LinearLayout>

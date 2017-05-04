@@ -20,6 +20,23 @@ public class GalleryAdapter extends
         RecyclerView.Adapter<GalleryAdapter.ViewHolder>
 {
 
+    /**
+     * ItemClick的回调接口
+     * @author zhy
+     *
+     */
+    public interface OnItemClickLitener
+    {
+        void onItemClick(View view, int position);
+    }
+
+    private OnItemClickLitener mOnItemClickLitener;
+
+    public void setOnItemClickLitener(OnItemClickLitener mOnItemClickLitener)
+    {
+        this.mOnItemClickLitener = mOnItemClickLitener;
+    }
+
     private LayoutInflater mInflater;
     private List<Integer> mDatas;
 
@@ -46,9 +63,6 @@ public class GalleryAdapter extends
         return mDatas.size();
     }
 
-    /**
-     * 创建ViewHolder
-     */
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i)
     {
@@ -61,13 +75,25 @@ public class GalleryAdapter extends
         return viewHolder;
     }
 
-    /**
-     * 设置值
-     */
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, final int i)
     {
         viewHolder.mImg.setImageResource(mDatas.get(i));
+
+        //如果设置了回调，则设置点击事件
+        if (mOnItemClickLitener != null)
+        {
+            viewHolder.itemView.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    mOnItemClickLitener.onItemClick(viewHolder.itemView, i);
+                }
+            });
+
+        }
+
     }
 
 }

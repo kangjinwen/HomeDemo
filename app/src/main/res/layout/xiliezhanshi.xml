@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="@drawable/bg_while_corner"
+    android:orientation="horizontal"
+    >
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+   <ImageView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:src="@drawable/xilie1"
+       android:background="@drawable/bg_while_corner"
+       android:layout_weight="1"/>
+    <LinearLayout
+        android:layout_width="0.5dp"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        android:background="@color/bg">
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_while_corner"
+            android:src="@drawable/xilie2"
+            android:layout_weight="1"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:padding="5dp"
+            android:background="@color/bg">
+        </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_while_corner"
+            android:src="@drawable/xilie3"
+            android:layout_weight="1"/>
+    </LinearLayout>
+</LinearLayout>
+</LinearLayout>

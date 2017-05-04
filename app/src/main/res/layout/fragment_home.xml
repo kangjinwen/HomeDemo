@@ -1,113 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#eee">
+<com.handmark.pulltorefresh.library.PullToRefreshListView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main_refresh">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#eee">
+</com.handmark.pulltorefresh.library.PullToRefreshListView>
 
-        <com.loror.lororUtil.view.banner.BannerViewPager
-            android:id="@+id/banner"
-            android:layout_width="match_parent"
-            android:layout_height="150dp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_alignBottom="@id/banner"
-            android:layout_centerHorizontal="true"
-            android:background="#3000"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <com.loror.lororUtil.view.banner.PointView
-                android:id="@+id/main_point"
-                android:layout_width="20dp"
-                android:layout_height="8dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/banner"
-            android:layout_marginTop="5dp"
-            android:orientation="vertical">
-
-            <include layout="@layout/boder_layout" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
-                android:background="@drawable/bg_while_corner"
-                android:gravity="center">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@mipmap/order"
-                    android:drawablePadding="6dp"
-                    android:padding="6dp"
-                    android:text="订单查询" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="70dp"
-                    android:drawableLeft="@mipmap/recharge"
-                    android:drawablePadding="6dp"
-                    android:padding="6dp"
-                    android:text="充值" />
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:scaleType="fitXY"
-                android:src="@mipmap/floor_banner1" />
-
-            <LinearLayout
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:id="@+id/main_guojijinkou"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/footer1" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/white"
-                    android:gravity="center_vertical"
-                    android:text="国际进口馆"
-                    android:textColor="@color/colorPrimary" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:layout_below="@id/main_guojijinkou">
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/id_recyclerview_horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:layout_centerVertical="true"
-                    android:background="@android:color/white"
-                    android:scrollbars="none" />
-            </LinearLayout>
-        </LinearLayout>
-
-    </RelativeLayout>
-
-</ScrollView>
+</LinearLayout>

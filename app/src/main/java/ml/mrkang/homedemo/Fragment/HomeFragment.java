@@ -14,7 +14,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.Toast;
 
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.loror.lororUtil.convert.DpPxUtil;
 import com.loror.lororUtil.view.Find;
 import com.loror.lororUtil.view.ViewUtil;
@@ -35,6 +39,8 @@ import ml.mrkang.homedemo.Activity.Banner1;
 import ml.mrkang.homedemo.Activity.Banner2;
 import ml.mrkang.homedemo.Activity.HomeActivity;
 import ml.mrkang.homedemo.Adapter.GalleryAdapter;
+import ml.mrkang.homedemo.Adapter.HotSalesAdapter;
+import ml.mrkang.homedemo.HotsalesBean;
 import ml.mrkang.homedemo.R;
 import ml.mrkang.homedemo.View.GlideImageLoader;
 
@@ -49,7 +55,10 @@ public class HomeFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private GalleryAdapter mAdapter;
     private List<Integer> mDatas;
-
+    private List<HotsalesBean> mhotsalesBeen;
+    private HotSalesAdapter mhotSalesAdapter;
+    PullToRefreshListView pullToRefreshView;
+    //    private HeaderAndFooterAdapter headerAndFooterAdapter;
     class Adapter extends ViewPagerBannerAdapter {
         public Adapter(Context context) {
             super(context);
@@ -97,10 +106,21 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+//        mQuickAdapter.addHeaderView(getView());
+//        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        //实例化header
+        View headerlayout=LayoutInflater.from(getContext()).inflate(R.layout.headerlayout,null);
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        //实例化刷新组件
+        pullToRefreshView = (PullToRefreshListView)view.findViewById(R.id.main_refresh);
+
+        //上下拉都刷新
+        pullToRefreshView.setMode(PullToRefreshBase.Mode.BOTH);
+        //添加header
+        pullToRefreshView.getRefreshableView().addHeaderView(headerlayout);
         initData();
         initView(view);
-        //得到控件
+        //得到国际进口馆控件
         mRecyclerView = (RecyclerView) view.findViewById(R.id.id_recyclerview_horizontal);
         //设置布局管理器
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
@@ -108,13 +128,34 @@ public class HomeFragment extends Fragment {
         mRecyclerView.setLayoutManager(linearLayoutManager);
         //设置适配器
         mAdapter = new GalleryAdapter(getContext(), mDatas);
+        mhotSalesAdapter=new HotSalesAdapter(getContext(),mhotsalesBeen);
         mRecyclerView.setAdapter(mAdapter);
+        pullToRefreshView.setOnPullEventListener(new PullToRefreshBase.OnPullEventListener<ListView>() {
+            @Override
+            public void onPullEvent(PullToRefreshBase<ListView> refreshView, PullToRefreshBase.State state, PullToRefreshBase.Mode direction) {
+                mhotSalesAdapter=new HotSalesAdapter(getContext(),mhotsalesBeen);
+            }
+        });
+        pullToRefreshView.setAdapter(mhotSalesAdapter);
+        //国际进口馆点击跳转功能
+        mAdapter.setOnItemClickLitener(new GalleryAdapter.OnItemClickLitener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(getActivity(), position+"", Toast.LENGTH_SHORT)
+                        .show();
+            }
+        });
         return view;
     }
 
     protected void initData() {
         mDatas = new ArrayList<Integer>(Arrays.asList(R.drawable._chile,
-                R.drawable._australia, R.drawable._france, R.drawable._spain, R.drawable._france));
+                R.drawable._australia, R.drawable._france, R.drawable._spain, R.drawable._australia));
+        mhotsalesBeen=new ArrayList<>();
+        mhotsalesBeen.add(new HotsalesBean("非常好的红酒",R.drawable._chile));
+        mhotsalesBeen.add(new HotsalesBean("非常坏的红酒",R.drawable._france));
+        mhotsalesBeen.add(new HotsalesBean("非常好的红酒",R.drawable._spain));
+        mhotsalesBeen.add(new HotsalesBean("非常好的红酒",R.drawable._spain));
     }
 
     /**
