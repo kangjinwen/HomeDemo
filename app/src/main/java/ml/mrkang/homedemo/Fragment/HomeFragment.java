@@ -1,6 +1,7 @@
 package ml.mrkang.homedemo.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -18,15 +19,27 @@ import com.loror.lororUtil.view.ViewUtil;
 import com.loror.lororUtil.view.banner.BannerViewPager;
 import com.loror.lororUtil.view.banner.PointView;
 import com.loror.lororUtil.view.banner.ViewPagerBannerAdapter;
+import com.youth.banner.Banner;
+import com.youth.banner.BannerConfig;
+import com.youth.banner.Transformer;
+import com.youth.banner.listener.OnBannerListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import ml.mrkang.homedemo.Activity.Banner1;
+import ml.mrkang.homedemo.Activity.Banner2;
+import ml.mrkang.homedemo.Activity.HomeActivity;
 import ml.mrkang.homedemo.R;
+import ml.mrkang.homedemo.View.GlideImageLoader;
+
 
 public class HomeFragment extends Fragment {
-    @Find(R.id.main_banner)
+    @Find(R.id.banner)
     private BannerViewPager banner;
     @Find(R.id.main_point)
     private PointView point;
-
+    private Intent intent;
     private int[] res = {R.mipmap.banner, R.mipmap.banner1};//banner要显示的图片
 
     class Adapter extends ViewPagerBannerAdapter {
@@ -37,8 +50,18 @@ public class HomeFragment extends Fragment {
         @Override
         public void onItemClick(int index) {
             //点击该页时回调
+            intent=new Intent();
+            switch (index){
+                case 0:
+                    intent.setClass(getActivity(), Banner1.class);
+                    startActivity(intent);
+                    break;
+                case 1:
+                    intent.setClass(getActivity(), Banner2.class);
+                    startActivity(intent);
+                    break;
+            }
         }
-
         @Override
         public int getItemCount() {
             return res.length;

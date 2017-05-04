@@ -1,25 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="ml.mrkang.homedemo.Activity.HomeActivity">
-    <com.youth.banner.Banner
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/banner"
-        app:indicator_margin="3dp"
-        android:layout_width="368dp"
-        android:layout_height="150dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="8dp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/main_frag"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <RadioGroup
+            android:id="@+id/tab_menu"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/homeBottomNavigationBg"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/indexRButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:button="@null"
+                android:checked="true"
+                android:drawableTop="@drawable/tab_selector_home"
+                android:gravity="center_horizontal|bottom"
+                android:paddingTop="7dp"
+                android:text="首页"
+                android:textColor="@color/tab_text" />
+
+            <RadioButton
+                android:id="@+id/messageRButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+
+                android:button="@null"
+                android:drawableTop="@drawable/tab_selector_msg"
+                android:gravity="center_horizontal|bottom"
+                android:paddingTop="2dp"
+                android:text="分类"
+                android:textColor="@color/tab_text" >
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/communicationRButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+
+                android:button="@null"
+                android:drawableTop="@drawable/tab_selector_contact"
+                android:gravity="center_horizontal|bottom"
+                android:paddingTop="2dp"
+                android:text="购物车"
+                android:textColor="@color/tab_text" />
+
+            <RadioButton
+                android:id="@+id/setupRButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+
+                android:button="@null"
+                android:drawableTop="@drawable/tab_selector_setup"
+                android:gravity="center_horizontal|bottom"
+                android:paddingTop="2dp"
+                android:text="我的"
+                android:textColor="@color/tab_text" />
+        </RadioGroup>
+    </LinearLayout>
+</LinearLayout>

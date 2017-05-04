@@ -10,14 +10,14 @@
         android:background="#eee">
 
         <com.loror.lororUtil.view.banner.BannerViewPager
-            android:id="@+id/main_banner"
+            android:id="@+id/banner"
             android:layout_width="match_parent"
             android:layout_height="150dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="25dp"
-            android:layout_alignBottom="@id/main_banner"
+            android:layout_alignBottom="@id/banner"
             android:layout_centerHorizontal="true"
             android:background="#3000"
             android:gravity="center"
@@ -32,7 +32,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/main_banner"
+            android:layout_below="@id/banner"
             android:layout_marginTop="5dp"
             android:orientation="vertical">
 
@@ -128,70 +128,7 @@
 
             </LinearLayout>
         </LinearLayout>
-        <RadioGroup
-            android:id="@+id/tab_menu"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/homeBottomNavigationBg"
-            android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/indexRButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_weight="1"
-                android:button="@null"
-                android:checked="true"
-                android:drawableTop="@drawable/tab_selector_home"
-                android:gravity="center_horizontal|bottom"
-                android:paddingTop="7dp"
-                android:text="@string/str_home"
-                android:textColor="@color/tab_text" />
-
-            <RadioButton
-                android:id="@+id/messageRButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_weight="1"
-
-                android:button="@null"
-                android:drawableTop="@drawable/tab_selector_msg"
-                android:gravity="center_horizontal|bottom"
-                android:paddingTop="2dp"
-                android:text="@string/str_msg"
-                android:textColor="@color/tab_text" >
-            </RadioButton>
-
-            <RadioButton
-                android:id="@+id/communicationRButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_weight="1"
-
-                android:button="@null"
-                android:drawableTop="@drawable/tab_selector_contact"
-                android:gravity="center_horizontal|bottom"
-                android:paddingTop="2dp"
-                android:text="@string/str_contact"
-                android:textColor="@color/tab_text" />
-
-            <RadioButton
-                android:id="@+id/setupRButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_weight="1"
-
-                android:button="@null"
-                android:drawableTop="@drawable/tab_selector_setup"
-                android:gravity="center_horizontal|bottom"
-                android:paddingTop="2dp"
-                android:text="@string/str_setup"
-                android:textColor="@color/tab_text" />
-        </RadioGroup>
     </RelativeLayout>
 
 </ScrollView>
