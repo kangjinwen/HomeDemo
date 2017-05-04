@@ -70,9 +70,11 @@
                 android:src="@mipmap/floor_banner1" />
 
             <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
+                android:id="@+id/main_guojijinkou"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -90,42 +92,19 @@
                     android:textColor="@color/colorPrimary" />
             </LinearLayout>
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:color/white"
-                android:orientation="horizontal"
-                android:paddingBottom="3dp"
-                android:paddingLeft="10dp"
-                android:paddingTop="5dp">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="75dp"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/foot_france" />
-
-                <ImageView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    android:layout_marginLeft="5dp"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/foot_spain" />
-
-                <ImageView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    android:layout_marginLeft="5dp"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/foot_australia" />
-
-                <ImageView
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    android:layout_marginLeft="5dp"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/foot_chile" />
-
+                android:layout_below="@id/main_guojijinkou">
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/id_recyclerview_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/white"
+                    android:scrollbars="none" />
             </LinearLayout>
         </LinearLayout>
 

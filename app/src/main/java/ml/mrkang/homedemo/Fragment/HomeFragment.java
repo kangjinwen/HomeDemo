@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,11 +27,14 @@ import com.youth.banner.Transformer;
 import com.youth.banner.listener.OnBannerListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.zip.Inflater;
 
 import ml.mrkang.homedemo.Activity.Banner1;
 import ml.mrkang.homedemo.Activity.Banner2;
 import ml.mrkang.homedemo.Activity.HomeActivity;
+import ml.mrkang.homedemo.Adapter.GalleryAdapter;
 import ml.mrkang.homedemo.R;
 import ml.mrkang.homedemo.View.GlideImageLoader;
 
@@ -41,6 +46,9 @@ public class HomeFragment extends Fragment {
     private PointView point;
     private Intent intent;
     private int[] res = {R.mipmap.banner, R.mipmap.banner1};//banner要显示的图片
+    private RecyclerView mRecyclerView;
+    private GalleryAdapter mAdapter;
+    private List<Integer> mDatas;
 
     class Adapter extends ViewPagerBannerAdapter {
         public Adapter(Context context) {
@@ -50,8 +58,8 @@ public class HomeFragment extends Fragment {
         @Override
         public void onItemClick(int index) {
             //点击该页时回调
-            intent=new Intent();
-            switch (index){
+            intent = new Intent();
+            switch (index) {
                 case 0:
                     intent.setClass(getActivity(), Banner1.class);
                     startActivity(intent);
@@ -62,6 +70,7 @@ public class HomeFragment extends Fragment {
                     break;
             }
         }
+
         @Override
         public int getItemCount() {
             return res.length;
@@ -89,8 +98,23 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        initData();
         initView(view);
+        //得到控件
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.id_recyclerview_horizontal);
+        //设置布局管理器
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        mRecyclerView.setLayoutManager(linearLayoutManager);
+        //设置适配器
+        mAdapter = new GalleryAdapter(getContext(), mDatas);
+        mRecyclerView.setAdapter(mAdapter);
         return view;
+    }
+
+    protected void initData() {
+        mDatas = new ArrayList<Integer>(Arrays.asList(R.drawable._chile,
+                R.drawable._australia, R.drawable._france, R.drawable._spain, R.drawable._france));
     }
 
     /**
@@ -111,7 +135,6 @@ public class HomeFragment extends Fragment {
         banner.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
             }
 
             @Override
@@ -124,6 +147,9 @@ public class HomeFragment extends Fragment {
 
             }
         });
+
+
+
     }
 
     @Override
